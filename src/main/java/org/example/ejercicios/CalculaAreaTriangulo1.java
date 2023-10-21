@@ -1,16 +1,23 @@
 package org.example.ejercicios;
 
-public class CalculaAreaTriangulo1 {
+import java.util.ArrayList;
+import java.util.List;
+
+public class  CalculaAreaTriangulo1 {
 	public static void main(String[] args) {
-		Triangulo triangulo = new Triangulo("rojo", 5.0, 4.0);
-		double valor_area_triangulo = 0D;
-		double b = triangulo.b();
-		double h = triangulo.h();
-		valor_area_triangulo =  0.5 * b * h;
-		System.out.println("Altura del triángulo: " + triangulo.h());
-		System.out.println("Base del triángulo: " + triangulo.b());
-		System.out.println("Área del triángulo: " + valor_area_triangulo);
+		Triangulo triangulo = new Triangulo( 0.5,5.0, 4.0);
+
+		System.out.println("Altura del triángulo: " + triangulo.altura());
+		System.out.println("Base del triángulo: " + triangulo.base());
+		System.out.println("Área del triángulo: " + area(triangulo));
 	}
 
-	record Triangulo(String c, double b, double h) {}
+	record Triangulo(double constante,
+					 double altura,
+					 double base) { }
+
+	private  static  double area(Triangulo triangulo){
+		double area= triangulo.constante()*triangulo.base()* triangulo.altura();
+        return area;
+    }
 }

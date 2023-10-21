@@ -1,31 +1,43 @@
 package org.example.ejercicios;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Facturaciom5 {
-	record Factura(String cliente, String fechafactura, List<Double> precioProducto) {
+	record Factura(String id,
+				   String cliente,
+				   LocalDate fechafactura,
+				   List<Double> precioProducto) {
+
+
 	}
 
 	public static void main(String[] args) {
-		Factura factura1 = new Factura("Mania Sanabria", "Julio 1, 1999", List.of(4500D, 5000D, 2500D));
-		Factura factura2 = new Factura("Juan Perez", "Agosto 15, 2000", List.of(3500D, 6000D, 2800D));
+		List<Factura> facturas = new ArrayList<>();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		facturas.add(new Factura("factura1", "Mania Sanabria", LocalDate.parse("01/07/1999",formatter), List.of(4500D, 5000D, 2500D)));
+		facturas.add(new Factura("factura2", "Juan Perez", LocalDate.parse("15/08/2000",formatter), List.of(3500D, 6000D, 2800D)));
 
-		double totalValorFact1 = 0;
-		for (Double precio : factura1.precioProducto) {
-			totalValorFact1 += precio;
+		String idSearchin="factura2";
+
+		for (Factura factura : facturas) {
+			List<Double> precios = factura.precioProducto();
+				if(factura.id().equals(idSearchin)){
+					System.out.println("Factura: " + factura.id());
+					System.out.println("Cliente: " + factura.cliente());
+					System.out.println("Total: " + calcularTotalFactura(precios));
+					System.out.println("Fecha Factura: "+factura.fechafactura() );
+				}
+		    }
 		}
-		System.out.println("Factura 1" );
-		System.out.println("Cliente: " + factura1.cliente());
-		System.out.println("Total: " + totalValorFact1);
 
-
-		double totalValorFact2 = 0;
-		for (Double precio : factura2.precioProducto) {
-			totalValorFact2 += precio;
+	private static Double calcularTotalFactura(List<Double> precios) {
+		Double totalValor = 0D;
+		for (Double precio:precios) {
+			totalValor += precio;
 		}
-		System.out.println("Factura 2" );
-		System.out.println("Cliente: " + factura2.cliente());
-		System.out.println("Total: " + totalValorFact2);
+		return totalValor;
 	}
-
 }

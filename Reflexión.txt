@@ -1,0 +1,36 @@
+** El ejercicio que elegí de facturación fue el número 5. En este ejercicio agrupe los datos
+en una lista ya que considere que al tener muchos más datos de facturas sería más complicado
+manejarlos  estos datos como variables.
+
+
+Ya que en el código propuesto se repetía instrucciones para calcular el total del valor de la factura
+cree un método para que realice el cálculo y a este método  se le pasaba una lista con los precios,
+esto va a permitir que no se repita código para calcular el total de precios de cada variable y
+que este método se pueda reutilizar.
+
+
+En la parte del récord adicione un identificador  para identificar las facturas en la lista
+y para que así sea más fácil acceder a los datos de cada factura.
+
+
+También para evitar la repetición de código al mostrar la información de las facturas he recorrido
+con un for la lista que cree con los datos de las facturas y he agregado un condicional para que
+solo se muestre la información de una factura por su identificador. Si se quita el condicional se va a mostar la
+informacion de todas las facturas
+
+
+Además que he trabajado solo los precios con Double y he cambiado en el recor la fecha a un dato de LocalTime para que
+sea mas acceder a sus datos.
+
+
+** Para el segundo ejercicio he elegido calcular el área de un triángulo 1.Lo primero que
+he hecho es cambiar la información del record ya los nombres no eran claros y los remplace  por la altura, la base y
+la constante  que permite calcular el area del triangulo y además he puesto para que todos los valores
+sean de tipo double ya que la constante no lo era.
+
+
+Para calcular el área  he creado un método para ser utilizado cuando se tengan varios
+triángulos y así evitar la repetición de código.
+
+
+
