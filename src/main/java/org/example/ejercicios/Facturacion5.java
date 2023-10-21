@@ -5,10 +5,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Facturaciom5 {
+public class Facturacion5 {
 	record Factura(String id,
 				   String cliente,
-				   LocalDate fechafactura,
+				   LocalDate fecha,
 				   List<Double> precioProducto) {
 
 
@@ -28,7 +28,7 @@ public class Facturaciom5 {
 					System.out.println("Factura: " + factura.id());
 					System.out.println("Cliente: " + factura.cliente());
 					System.out.println("Total: " + calcularTotalFactura(precios));
-					System.out.println("Fecha Factura: "+factura.fechafactura() );
+					System.out.println("Fecha Factura: "+ factura.fecha() );
 				}
 		    }
 		}
